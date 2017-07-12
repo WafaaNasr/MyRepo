@@ -8,8 +8,12 @@ namespace Vidly.Controllers
         // GET: Movie
         public ActionResult Random()
         {
-            Movie movie = new Movie {Name = "Sherk!!"};
-            return View(movie);  
+            Movie movie = new Movie { Name = "Sherk!!" };
+            return View(movie);
+        }
+        public ActionResult GetByRelease(int year, int month)
+        {
+            return Content($"In Year:{year} and Month: {month}");
         }
     }
 }
