@@ -11,6 +11,7 @@ namespace Vidly.Controllers
             Movie movie = new Movie { Name = "Sherk!!" };
             return View(movie);
         }
+        [Route("movie/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult GetByRelease(int year, int month)
         {
             return Content($"In Year:{year} and Month: {month}");
