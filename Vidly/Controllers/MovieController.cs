@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -9,7 +11,14 @@ namespace Vidly.Controllers
         public ActionResult Random()
         {
             Movie movie = new Movie { Name = "Sherk!!" };
-            return View(movie);
+
+            List<Customer> customers = new List<Customer>
+                {
+                    new Customer {Name = "Customer1"},
+                    new Customer {Name = "Customer2"}
+                };
+            RandomMovieViewModel viewModel = new RandomMovieViewModel { Movie = movie, Customers = customers };
+            return View(viewModel);
         }
         [Route("movie/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult GetByRelease(int year, int month)
