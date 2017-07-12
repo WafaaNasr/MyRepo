@@ -1,8 +1,32 @@
-﻿@model Vidly.ViewModels.RandomMovieViewModel
+﻿@using Vidly.Models
+@model Vidly.ViewModels.RandomMovieViewModel
 
 @{
     ViewBag.Title = "Random Movies";
     Layout = "../Shared/_Layout.cshtml";
 }
+@{
+    // This how to add attribute's value dynamically
+    var className = @Model.Customers.Count > 1 ? "popular" : null;
+}
 
-<h2>@Model.Movie.Name</h2>
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@*
+    Adding Comments
+    on Multiple Lines
+*@
+@if (Model.Customers.Count == 0)
+{
+    <text> No one has rented this movie before!!</text>
+}
+else
+{
+    <ul>
+        @foreach (Customer cust in Model.Customers)
+        {
+            <li>@cust.Name</li>
+        }
+    </ul>
+}
+
