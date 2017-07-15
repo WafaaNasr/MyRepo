@@ -28,14 +28,14 @@ namespace Vidly.Controllers
         public ActionResult Index()
         {
             //EF as "Deferred Executions" won't execute this line until one uses the Customers or iterates on them
-            var customers = _applicationDbContext.Customers.Include(c=>c.MembershipType);// For Supporting Eager loadind for the Navigation Properties 
+            var customers = _applicationDbContext.Customers.Include(c => c.MembershipType);// For Supporting Eager loadind for the Navigation Properties 
             //ToList() will force the EF execute the query immediately
             return View(customers.ToList());
         }
 
         public ActionResult Detail(int id)
         {
-            var customer = _applicationDbContext.Customers.FirstOrDefault(c => c.Id == id);
+            var customer = _applicationDbContext.Customers.Include(c => c.MembershipType).FirstOrDefault(c => c.Id == id);
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
