@@ -227,6 +227,14 @@
     <Compile Include="Migrations\201707151513119_MakeCustNameNotNullableandHaslimit.Designer.cs">
       <DependentUpon>201707151513119_MakeCustNameNotNullableandHaslimit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201707151556052_AddMembershipType1.cs" />
+    <Compile Include="Migrations\201707151556052_AddMembershipType1.Designer.cs">
+      <DependentUpon>201707151556052_AddMembershipType1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201707151557134_SeedTheMembershipTypeName.cs" />
+    <Compile Include="Migrations\201707151557134_SeedTheMembershipTypeName.Designer.cs">
+      <DependentUpon>201707151557134_SeedTheMembershipTypeName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -335,6 +343,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707151513119_MakeCustNameNotNullableandHaslimit.resx">
       <DependentUpon>201707151513119_MakeCustNameNotNullableandHaslimit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707151556052_AddMembershipType1.resx">
+      <DependentUpon>201707151556052_AddMembershipType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707151557134_SeedTheMembershipTypeName.resx">
+      <DependentUpon>201707151557134_SeedTheMembershipTypeName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
