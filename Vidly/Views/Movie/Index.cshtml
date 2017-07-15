@@ -1,0 +1,22 @@
+﻿@using Vidly.Models
+@model System.Collections.Generic.List<Vidly.Models.Movie>
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+<br />
+
+<table class="table table-bordered">
+    <thead>
+        Movies
+    </thead>
+    <tbody>
+        @foreach (Movie movie in Model)
+            {
+            <tr><td>@movie.Name </td></tr>
+        }
+    </tbody>
+</table>
+

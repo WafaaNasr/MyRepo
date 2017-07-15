@@ -25,5 +25,10 @@ namespace Vidly.Controllers
         {
             return Content($"In Year:{year} and Month: {month}");
         }
+        public ActionResult Index()
+        {
+            return View(new List<Movie> { new Movie { Id = 1, Name = "Sherk" }, new Movie { Id = 2, Name = "Sherk2" } });
+        }
+
     }
 }
