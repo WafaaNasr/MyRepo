@@ -7,18 +7,22 @@
 }
 
 <h2>Customers</h2>
-@if (Model.Count > 0)
+@if (Model.Any())
 {
     <table class="table table-stipped">
         <thead>
             <tr>
                 <th> Customer</th>
+                <th> Discount Rate</th>
             </tr>
         </thead>
         <tbody>
             @foreach (Customer cust in Model)
             {
-                <tr><td>@Html.ActionLink(@cust.Name, "Detail", "Customer", new { id = @cust.Id }, null) </td></tr>
+                <tr>
+                    <td>@Html.ActionLink(@cust.Name, "Detail", "Customer", new { id = @cust.Id }, null) </td>
+                    <td>@cust.MembershipType.DiscountRate%</td>
+                </tr>
             }
         </tbody>
     </table>
