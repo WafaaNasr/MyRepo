@@ -8,15 +8,21 @@
 
 <br />
 
-<table class="table table-bordered">
+<table class="table table-stipped">
     <thead>
-        Movies
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+        </tr>
     </thead>
     <tbody>
         @foreach (Movie movie in Model)
             {
-            <tr><td>@movie.Name </td></tr>
+            <tr>
+                <td>@Html.ActionLink(@movie.Name, "Detail", "Movie", new { id = @movie.Id }, null) </td>
+
+                <td>@movie.Genre.Name</td>
+            </tr>
         }
     </tbody>
 </table>
-
