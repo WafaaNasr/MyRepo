@@ -20,7 +20,7 @@
             @foreach (Customer cust in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(@cust.Name, "Detail", "Customer", new { id = @cust.Id }, null) </td>
+                    <td>@Html.ActionLink(@cust.Name, "Edit", "Customer", new { id = @cust.Id }, null) </td>
                     <td>@cust.MembershipType.Name</td>
                 </tr>
             }
