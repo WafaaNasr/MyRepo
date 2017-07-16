@@ -2,6 +2,7 @@
 using System.Web.Mvc;
 using Vidly.Models;
 using System.Data.Entity;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -39,6 +40,15 @@ namespace Vidly.Controllers
             if (customer == null)
                 return HttpNotFound();
             return View(customer);
+        }
+
+        public ActionResult Create()
+        {
+            var custViewModel = new CustomerViewModel()
+            {
+                MembershipTypes = _applicationDbContext.MembershipTypes.ToList()
+            };
+            return View(custViewModel);
         }
 
         #endregion ControllerActions
