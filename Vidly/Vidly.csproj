@@ -200,6 +200,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="Migrations\201707171159559_MakeMovieFieldsRequired.cs" />
+    <Compile Include="Migrations\201707171159559_MakeMovieFieldsRequired.Designer.cs">
+      <DependentUpon>201707171159559_MakeMovieFieldsRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MovieViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -331,8 +336,9 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Detail.cshtml" />
     <Content Include="Views\Movie\Index.cshtml" />
-    <Content Include="Views\Movie\Detail.cshtml" />
+    <Content Include="Views\Movie\MovieForm.cshtml" />
     <Content Include="Views\Customer\CustomerForm.cshtml" />
+    <Content Include="Views\Movie\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,6 +387,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201707152100066_FixCustomerAttributesAndNames.resx">
       <DependentUpon>201707152100066_FixCustomerAttributesAndNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201707171159559_MakeMovieFieldsRequired.resx">
+      <DependentUpon>201707171159559_MakeMovieFieldsRequired.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

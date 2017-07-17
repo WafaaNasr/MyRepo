@@ -7,22 +7,22 @@
 }
 
 <br />
-
-<table class="table table-stipped">
-    <thead>
-        <tr>
-            <th>Movies</th>
-            <th>Genre</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (Movie movie in Model)
-            {
+@Html.ActionLink("Create Movie", "Create", "Movie", null, new { @class = "btn btn-primary" })
+    <table class="table table-stipped">
+        <thead>
             <tr>
-                <td>@Html.ActionLink(@movie.Name, "Detail", "Movie", new { id = @movie.Id }, null) </td>
-
-                <td>@movie.Genre.Name</td>
+                <th>Movies</th>
+                <th>Genre</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (Movie movie in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(@movie.Name, "Edit", "Movie", new { id = @movie.Id }, null) </td>
+
+                    <td>@movie.Genre.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
