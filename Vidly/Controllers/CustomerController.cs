@@ -55,13 +55,17 @@ namespace Vidly.Controllers
         // ModelBinding-"Mapping The Request Form Data to the input object's props"
 
         [HttpPost]
-        public ActionResult Save(CustomerViewModel viewModel)
+        public ActionResult Save(Customer customer)
         {
-            if (viewModel.Customer.Id == 0)
-                _applicationDbContext.Customers.Add(viewModel.Customer);
+            if (!ModelState.IsValid)
+            {
+                return View("CustomerForm", new CustomerViewModel { Customer = customer, MembershipTypes = _applicationDbContext.MembershipTypes.ToList() });
+            }
+            if (customer.Id == 0)
+                _applicationDbContext.Customers.Add(customer);
             else
             {
-                Customer custInDb = _applicationDbContext.Customers.Single(c => c.Id == viewModel.Customer.Id);
+                Customer custInDb = _applicationDbContext.Customers.Single(c => c.Id == customer.Id);
 
                 #region May Cause SecurityHole As it takes the props' values 
 
@@ -69,10 +73,10 @@ namespace Vidly.Controllers
 
                 #endregion Cause SecurityHole
 
-                custInDb.Name = viewModel.Customer.Name;
-                custInDb.Birthdate = viewModel.Customer.Birthdate;
-                custInDb.IsSubscribedToNewsLetter = viewModel.Customer.IsSubscribedToNewsLetter;
-                custInDb.MembershipTypeId = viewModel.Customer.MembershipTypeId;
+                custInDb.Name = customer.Name;
+                custInDb.Birthdate = customer.Birthdate;
+                custInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+                custInDb.MembershipTypeId = customer.MembershipTypeId;
             }
             _applicationDbContext.SaveChanges();
             return RedirectToAction("Index");

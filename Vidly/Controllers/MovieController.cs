@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
 
 namespace Vidly.Controllers
 {
@@ -25,8 +25,10 @@ namespace Vidly.Controllers
             _applicationDbContext.Dispose();
         }
 
-        #endregion
+        #endregion InitializeDispose
+
         #region ControllerActions
+
         // GET: Movie
         public ActionResult Random()
         {
@@ -40,11 +42,13 @@ namespace Vidly.Controllers
             RandomMovieViewModel viewModel = new RandomMovieViewModel { Movie = movie, Customers = customers };
             return View(viewModel);
         }
+
         [Route("movie/released/{year}/{month:regex(\\d{2}):range(1,12)}")]
         public ActionResult GetByRelease(int year, int month)
         {
             return Content($"In Year:{year} and Month: {month}");
         }
+
         public ActionResult Index()
         {
             return View(_applicationDbContext.Movies.Include(m => m.Genre).ToList());
@@ -61,6 +65,7 @@ namespace Vidly.Controllers
             var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = null };
             return View("MovieForm", movieViewModel);
         }
+
         public ActionResult Edit(int id)
         {
             var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = _applicationDbContext.Movies.Single(m => m.Id == id) };
@@ -94,6 +99,7 @@ namespace Vidly.Controllers
             }
             return RedirectToAction("Index");
         }
-        #endregion
+
+        #endregion ControllerActions
     }
 }
