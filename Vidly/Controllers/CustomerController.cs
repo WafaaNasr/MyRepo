@@ -47,7 +47,8 @@ namespace Vidly.Controllers
         {
             var custViewModel = new CustomerViewModel()
             {
-                MembershipTypes = _applicationDbContext.MembershipTypes.ToList()
+                MembershipTypes = _applicationDbContext.MembershipTypes.ToList(),
+                Customer = new Customer()//To initialize the fields to avoid validation for ID "incase of validation Summary"
             };
             return View("CustomerForm", custViewModel);
         }
