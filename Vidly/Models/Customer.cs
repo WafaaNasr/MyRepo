@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Vidly.CustomValdiations;
 
 namespace Vidly.Models
 {
@@ -12,6 +13,7 @@ namespace Vidly.Models
         public string Name { get; set; }
 
         [Display(Name = "Date Of Birth")]
+        [Min18ToAMember]
         public DateTime? Birthdate { get; set; }
 
         public bool IsSubscribedToNewsLetter { get; set; }

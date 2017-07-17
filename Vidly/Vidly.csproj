@@ -200,6 +200,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MovieController.cs" />
+    <Compile Include="CustomValdiations\Min18ToAMember.cs" />
     <Compile Include="Migrations\201707171159559_MakeMovieFieldsRequired.cs" />
     <Compile Include="Migrations\201707171159559_MakeMovieFieldsRequired.Designer.cs">
       <DependentUpon>201707171159559_MakeMovieFieldsRequired.cs</DependentUpon>
