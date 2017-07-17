@@ -37,5 +37,10 @@
         </label>
     </div>
     @Html.HiddenFor(m => m.Customer.Id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Submit</button>
+}
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+@*It will work only with the Standard Asp.Net Validations Annotations and won't work with custom validations*@
 }

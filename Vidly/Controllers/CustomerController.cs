@@ -56,6 +56,7 @@ namespace Vidly.Controllers
         // ModelBinding-"Mapping The Request Form Data to the input object's props"
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
