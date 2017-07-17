@@ -62,7 +62,7 @@ namespace Vidly.Controllers
 
         public ActionResult Create()
         {
-            var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = null };
+            var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = new Movie() };
             return View("MovieForm", movieViewModel);
         }
 
@@ -73,6 +73,8 @@ namespace Vidly.Controllers
             return View("MovieForm", movieViewModel);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)
