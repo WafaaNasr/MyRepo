@@ -62,13 +62,13 @@ namespace Vidly.Controllers
 
         public ActionResult Create()
         {
-            var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = new Movie() };
+            var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList() };
             return View("MovieForm", movieViewModel);
         }
 
         public ActionResult Edit(int id)
         {
-            var movieViewModel = new MovieViewModel { Genres = _applicationDbContext.Genre.ToList(), Movie = _applicationDbContext.Movies.Single(m => m.Id == id) };
+            var movieViewModel = new MovieViewModel(_applicationDbContext.Movies.Single(m => m.Id == id)) { Genres = _applicationDbContext.Genre.ToList() };
 
             return View("MovieForm", movieViewModel);
         }
