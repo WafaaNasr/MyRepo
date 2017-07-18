@@ -3,6 +3,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using AutoMapper;
 
 namespace Vidly
 {
@@ -10,6 +11,7 @@ namespace Vidly
     {
         protected void Application_Start()
         {
+            AutoMapper.Mapper.Initialize(m => m.AddProfile<MappingProfile>());
             //For Configuring WebApi
             GlobalConfiguration.Configure(WebApiConfig.Register);
             AreaRegistration.RegisterAllAreas();
