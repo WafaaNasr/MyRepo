@@ -9,7 +9,7 @@
         public byte DurationInMonths { get; set; }
         public byte DiscountRate { get; set; }
 
-        public static readonly byte Unkown = 0;
+        public static readonly byte Unkown = 0;// Readonly to prevent modifying the values anywhere in the project
         public static readonly byte PayAsYouGo = 1;
     }
 }
