@@ -37,6 +37,10 @@ else
 {
     <script>
         $(document).ready(function () {
+
+            //Adding jquery Datatable incase using Action Method returns html
+            $('#customers').DataTable();
+
             //Only one event will be hooked to table customers and will be only raised when the event is raised from element has js-delete class
             $('#customers').on('click','.js-delete', function () {
 
